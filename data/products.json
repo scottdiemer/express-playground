@@ -1,10 +1,1 @@
-[
-  {
-    "id": "13431",
-    "title": "Book",
-    "imageUrl": "https://images.unsplash.com/photo-1575709527142-a93ed587bb83?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Ym9va3xlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=400&q=60",
-    "description": "This is an awesome book",
-    "price": "19.99"
-  }
-]
-
+[{"id":"13431","title":"Book","imageUrl":"https://images.unsplash.com/photo-1575709527142-a93ed587bb83?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Ym9va3xlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=400&q=60","description":"This is an awesome book","price":"19.99"},{"title":"Another Book","imageUrl":"https://images.unsplash.com/photo-1575709527142-a93ed587bb83?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Ym9va3xlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=400&q=60","description":"This is another book","price":"16.95","id":"0.6413254936035688"}]
