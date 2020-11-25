@@ -1,8 +1,11 @@
 const fs = require('fs')
 const path = require('path')
-const rootDir = require('../util/path')
 
-const productsPath = path.join(rootDir, 'data', 'products.json')
+const productsPath = path.join(
+  path.dirname(require.main.filename),
+  'data',
+  'products.json'
+)
 
 const getProductsFromFile = (callback) => {
   fs.readFile(productsPath, (err, fileContent) => {
@@ -15,7 +18,8 @@ const getProductsFromFile = (callback) => {
 }
 
 module.exports = class Product {
-  constructor(title, imageUrl, description, price) {
+  constructor(id, title, imageUrl, description, price) {
+    this.id = id
     this.title = title
     this.imageUrl = imageUrl
     this.description = description
@@ -23,14 +27,27 @@ module.exports = class Product {
   }
 
   save() {
-    this.id = Math.random().toString()
     getProductsFromFile((products) => {
-      products.push(this)
-      fs.writeFile(productsPath, JSON.stringify(products), (err) => {
-        if (err) {
-          console.log(err)
-        }
-      })
+      if (this.id) {
+        const existingProductIndex = products.findIndex(
+          (prod) => prod.id === this.id
+        )
+        const updatedProducts = [...products]
+        updatedProducts[existingProductIndex] = this
+        fs.writeFile(productsPath, JSON.stringify(products), (err) => {
+          if (err) {
+            console.log(err)
+          }
+        })
+      } else {
+        this.id = Math.random().toString()
+        products.push(this)
+        fs.writeFile(productsPath, JSON.stringify(products), (err) => {
+          if (err) {
+            console.log(err)
+          }
+        })
+      }
     })
   }
 
