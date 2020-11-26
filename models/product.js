@@ -34,7 +34,7 @@ module.exports = class Product {
         )
         const updatedProducts = [...products]
         updatedProducts[existingProductIndex] = this
-        fs.writeFile(productsPath, JSON.stringify(products), (err) => {
+        fs.writeFile(productsPath, JSON.stringify(updatedProducts), (err) => {
           if (err) {
             console.log(err)
           }
