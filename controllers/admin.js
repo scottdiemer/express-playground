@@ -50,8 +50,13 @@ exports.postEditProduct = (req, res, next) => {
     updatedDescription,
     updatedPrice
   )
-  console.log(updatedProduct)
   updatedProduct.save()
+  res.redirect('/admin/products')
+}
+
+exports.postDeleteProduct = (req, res, next) => {
+  const prodId = req.body.productId
+  Product.deleteById(prodId)
   res.redirect('/admin/products')
 }
 
